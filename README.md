@@ -4,12 +4,12 @@
 
 ## Background
 
-[Youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) is a famous program used for downloading videos from youtube and many [other sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html). Though alone it handels most cases but for videos of higher quality where audio is present seperatly we also need [FFmpeg](https://ffmpeg.org/) to merge video and audio in single file (.mp4, .mkv etc.) in addition to this we also need [Atomic Parsley](http://atomicparsley.sourceforge.net/) which is used for adding metadata (Thumbail, etc.) to downloaded video.
+[Youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html) is a famous program used for downloading videos from YouTube and many [other sites](http://ytdl-org.github.io/youtube-dl/supportedsites.html). Though alone it handles most cases but for videos of higher quality where audio is present separately we also need [FFmpeg](https://ffmpeg.org/) to merge video and audio in single file (.mp4, .mkv, etc.) in addition to this we also need [Atomic Parsley](http://atomicparsley.sourceforge.net/) which is used for adding metadata (Thumbnail, etc.) to downloaded video.
 
-Since all this are command line programs which can be cubersome to write each time, So I have written scripts files useful for most general cases -
+Since all this are command line programs which can be cumbersome to write each time, So I have written scripts files useful for most general cases -
 * Highest Quality Audio and Video download
 * English Subtitle Addition 
-* Tumbnail and xattrs embedding 
+* Thumbnail, Metadata and xattrs embedding 
 * Adding numbering to playlist videos
 
 ## Installation
