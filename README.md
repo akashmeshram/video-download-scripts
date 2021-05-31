@@ -25,9 +25,13 @@ In cmd/Powershell type
 
 * `yt-pl <Playlist link>` // for Playlist download
 
-* `yt-m <video link>` // for mp3 file download of single video
+* `yt-m <video link>` // for audio (m4a) file download of single video
 
-* `yt-ml <Playlist link>` // for mp3 files download of Playlist
+* `yt-ml <Playlist link>` // for audio (m4a) files download of Playlist
+
+* `yt-sc <SoundCLoud link>` // for SoundCloud (m4a) file download
+
+* `yt-m-sqthumb <SOundCLoud link>` // for youtube audio (m4a) file download of single video with square thumbnail
 
 ## Author
 [Akash Meshram](https://github.com/akashmeshram)
