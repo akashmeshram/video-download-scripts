@@ -18,7 +18,7 @@ IF "%~1"=="" GOTO HELP
 
 
 REM Define variables for the yt-dlp command options
-SET "METADATA_OPTIONS=--parse-metadata "description:(?s)(?P<meta_comment>.+)" --parse-metadata "description:(?s)(?P<meta_year>\b\d{4}\b)" --parse-metadata "description:(?s)(?P<meta_date>\d{4}-\d{2}-\d{2})" --embed-metadata"
+SET "METADATA_OPTIONS=--embed-chapters --parse-metadata 'description:(?s)(?P<meta_comment>.+)' --parse-metadata 'description:(?s)(?P<meta_year>\b\d{4}\b)' --parse-metadata 'description:(?s)(?P<meta_date>\d{4}-\d{2}-\d{2})' --embed-metadata"
 SET "THUMBNAIL_OPTIONS=--embed-thumbnail --convert-thumbnails jpg "
 SET "SUBTITLE_OPTIONS=--sub-lang en.* --embed-subs"
 SET "SQUARE_THUMBNAIL_OPTIONS=--ppa "ffmpeg: -c:v mjpeg -vf crop=\"'if(gt(ih,iw),iw,ih)':'if(gt(iw,ih),ih,iw)'\"""
