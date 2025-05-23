@@ -16,27 +16,32 @@ A collection of scripts for downloading videos, music, and audio from YouTube an
 
 This repository contains various scripts to simplify downloading content from YouTube and other video platforms. The scripts serve as user-friendly wrappers around yt-dlp (upstream of youtube-dl), providing both GUI and command-line interfaces depending on your operating system.
 
-## YouTube Downloader GUI for Linux (yt.sh)
+## YouTube Downloader Script (yt.sh)
 
-This bash script provides a graphical interface for downloading videos, audios, or music from YouTube using yt-dlp and Zenity.
+This bash script provides an advanced command-line interface for downloading videos, audios, or music from YouTube using yt-dlp.
 
 ### Features
 
-- ✅ Graphical user interface
+- ✅ Command-line interface with comprehensive options
 - ✅ Download progress indicator
 - ✅ Playlist support
-- ✅ Video quality selection
+- ✅ Video quality and resolution selection
+- ✅ Codec selection
 - ✅ Custom download location
 - ✅ Metadata and thumbnail embedding
-- ✅ Subtitle integration (English)
-- ✅ Error handling and reporting
+- ✅ Subtitle integration
+- ✅ Square thumbnail for music files
+- ✅ MP3 conversion with metadata
+- ✅ Error handling and detailed reporting
 
 ### Requirements
 
-- Linux operating system (tested on Ubuntu/Debian)
+- Linux/macOS operating system (tested on Ubuntu/Debian/macOS)
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp) - YouTube video downloader
-- [Zenity](https://wiki.gnome.org/Projects/Zenity) - GUI dialog display
 - [FFmpeg](https://ffmpeg.org/) - For video/audio processing
+- Optional dependencies:
+  - [AtomicParsley](http://atomicparsley.sourceforge.net/) - For better MP4 metadata embedding
+  - [jq](https://stedolan.github.io/jq/) - For better metadata parsing
 
 ### Installation
 
@@ -56,9 +61,20 @@ This bash script provides a graphical interface for downloading videos, audios, 
 1. Ensure you have the required dependencies installed:
 
    ```bash
-   sudo apt install zenity ffmpeg
+   # For Ubuntu/Debian
+   sudo apt install ffmpeg
+   # For macOS
+   brew install ffmpeg
+
+   # Install yt-dlp
    sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp
    sudo chmod a+rx /usr/local/bin/yt-dlp
+
+   # Optional dependencies
+   # For Ubuntu/Debian
+   sudo apt install atomicparsley jq
+   # For macOS
+   brew install atomicparsley jq
    ```
 
 2. Make the script executable:
@@ -74,16 +90,43 @@ This bash script provides a graphical interface for downloading videos, audios, 
 
 ### Usage
 
-1. If installed system-wide, simply type `yt` in your terminal
+1. If installed system-wide, use the `yt` command in your terminal
 2. Otherwise, navigate to the script directory and run `./yt.sh`
-3. Follow the on-screen prompts:
-   - Enter a YouTube URL
-   - Specify if it's a playlist (if applicable)
-   - Select download type (Video/Audio/Music)
-   - Choose video quality (for video downloads)
-   - Select a download location
-   - Monitor download progress
-   - Optionally open the download location when complete
+
+#### Basic Usage
+```bash
+# Download video (default: best quality mp4)
+yt https://www.youtube.com/watch?v=VIDEO_ID
+
+# Download audio only
+yt -a https://www.youtube.com/watch?v=VIDEO_ID
+
+# Download as MP3 with square thumbnail
+yt --mp3 https://www.youtube.com/watch?v=VIDEO_ID
+```
+
+#### Advanced Options
+```bash
+# Download entire playlist
+yt -p https://www.youtube.com/playlist?list=PLAYLIST_ID
+
+# Download video with specific resolution
+yt -r 1080 https://www.youtube.com/watch?v=VIDEO_ID
+
+# Download video with custom codec and format
+yt -c h264 -f mkv https://www.youtube.com/watch?v=VIDEO_ID
+
+# Download MP3s with custom metadata
+yt --mp3 -p --album "Album Name" --artist "Artist Name" https://www.youtube.com/playlist?list=PLAYLIST_ID
+
+# Specify output directory
+yt -o ~/Music https://www.youtube.com/watch?v=VIDEO_ID
+```
+
+For all available options, run:
+```bash
+yt --help
+```
 
 ## YouTube Downloader Batch Script (yt.bat)
 
